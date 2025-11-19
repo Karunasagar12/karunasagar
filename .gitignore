@@ -1,0 +1,21 @@
+# Test files
+test_*.py
+test_*.html
+
+# Output files
+scrape_results.json
+scrape_results.csv
+html/
+screenshots/
+
+# Development versions
+dha_scraper.py
+dha_scraper_cffi.py
+dha_scraper_v2.py
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+venv/
