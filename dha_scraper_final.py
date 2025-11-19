@@ -212,7 +212,7 @@ class DHAScraper:
             data['page_content'] = list(set(all_text))[:50]
 
             # Save HTML
-            html_dir = '/home/user/karunasagar/html'
+            html_dir = 'html'
             os.makedirs(html_dir, exist_ok=True)
             html_path = f"{html_dir}/page_{dha_id}.html"
             with open(html_path, 'w', encoding='utf-8') as f:
@@ -258,7 +258,7 @@ class DHAScraper:
 
     def save_results(self):
         """Save results to JSON and CSV"""
-        with open('/home/user/karunasagar/scrape_results.json', 'w', encoding='utf-8') as f:
+        with open('scrape_results.json', 'w', encoding='utf-8') as f:
             json.dump(self.results, f, indent=2, ensure_ascii=False)
 
         if self.results:
@@ -288,7 +288,7 @@ class DHAScraper:
             priority = ['dha_unique_id', 'url', 'page_title', 'scraped_at', 'error']
             ordered = priority + sorted([k for k in all_keys if k not in priority])
 
-            with open('/home/user/karunasagar/scrape_results.csv', 'w', newline='', encoding='utf-8') as f:
+            with open('scrape_results.csv', 'w', newline='', encoding='utf-8') as f:
                 writer = csv.DictWriter(f, fieldnames=ordered)
                 writer.writeheader()
                 writer.writerows(flat_results)
