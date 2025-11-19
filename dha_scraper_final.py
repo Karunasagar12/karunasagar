@@ -294,11 +294,16 @@ class DHAScraper:
                 writer.writerows(flat_results)
 
 
-def load_urls_from_excel(excel_path, column=None):
-    """Load URLs from an Excel file"""
+def load_urls_from_file(file_path, column=None):
+    """Load URLs from an Excel or CSV file"""
     try:
-        df = pd.read_excel(excel_path)
-        print(f"Loaded Excel: {len(df)} rows, columns: {list(df.columns)}")
+        # Detect file type
+        if file_path.endswith('.csv'):
+            df = pd.read_csv(file_path)
+            print(f"Loaded CSV: {len(df)} rows, columns: {list(df.columns)}")
+        else:
+            df = pd.read_excel(file_path)
+            print(f"Loaded Excel: {len(df)} rows, columns: {list(df.columns)}")
 
         # Find the URL column
         if column and column in df.columns:
@@ -331,7 +336,7 @@ def load_urls_from_excel(excel_path, column=None):
 
 def main():
     parser = argparse.ArgumentParser(description='DHA Medical Directory Scraper')
-    parser.add_argument('--excel', help='Excel file with URLs (.xlsx)')
+    parser.add_argument('--file', help='Excel (.xlsx) or CSV (.csv) file with URLs')
     parser.add_argument('--column', help='Column name containing URLs (default: auto-detect)')
     parser.add_argument('--proxy', help='Proxy URL (http://user:pass@host:port)')
     parser.add_argument('--proxy-file', help='File with proxy list (one per line)')
@@ -345,15 +350,15 @@ def main():
             proxy_list = [line.strip() for line in f if line.strip()]
         print(f"Loaded {len(proxy_list)} proxies")
 
-    # Load URLs from Excel or use defaults
-    if args.excel:
-        urls = load_urls_from_excel(args.excel, args.column)
+    # Load URLs from file
+    if args.file:
+        urls = load_urls_from_file(args.file, args.column)
         if not urls:
-            print("No URLs found in Excel file!")
+            print("No URLs found in file!")
             return
     else:
-        print("No Excel file provided. Use --excel urls.xlsx")
-        print("Example: python dha_scraper_final.py --excel urls.xlsx")
+        print("No input file provided. Use --file urls.csv or --file urls.xlsx")
+        print("Example: python dha_scraper_final.py --file Test.csv")
         return
 
     print("=" * 60)
