@@ -4,15 +4,20 @@ DHA Medical Directory Scraper - Final Version
 Includes proxy support and multiple bypass techniques
 
 USAGE:
-    # Without proxy (run locally on residential IP):
-    python dha_scraper_final.py
+    # With Excel file containing URLs:
+    python dha_scraper_final.py --excel urls.xlsx
+
+    # Specify column name (default: 'url' or first column):
+    python dha_scraper_final.py --excel urls.xlsx --column "Link"
 
     # With proxy:
-    python dha_scraper_final.py --proxy "http://user:pass@proxy:port"
+    python dha_scraper_final.py --excel urls.xlsx --proxy "http://user:pass@proxy:port"
 
     # With rotating proxies file:
-    python dha_scraper_final.py --proxy-file proxies.txt
+    python dha_scraper_final.py --excel urls.xlsx --proxy-file proxies.txt
 """
+
+import pandas as pd
 
 import argparse
 import json
@@ -289,8 +294,45 @@ class DHAScraper:
                 writer.writerows(flat_results)
 
 
+def load_urls_from_excel(excel_path, column=None):
+    """Load URLs from an Excel file"""
+    try:
+        df = pd.read_excel(excel_path)
+        print(f"Loaded Excel: {len(df)} rows, columns: {list(df.columns)}")
+
+        # Find the URL column
+        if column and column in df.columns:
+            url_column = column
+        elif 'url' in df.columns:
+            url_column = 'url'
+        elif 'URL' in df.columns:
+            url_column = 'URL'
+        elif 'link' in df.columns:
+            url_column = 'link'
+        elif 'Link' in df.columns:
+            url_column = 'Link'
+        else:
+            # Use first column
+            url_column = df.columns[0]
+            print(f"Using first column: '{url_column}'")
+
+        # Extract URLs
+        urls = df[url_column].dropna().astype(str).tolist()
+        # Filter valid URLs
+        urls = [url.strip() for url in urls if url.strip().startswith('http')]
+
+        print(f"Found {len(urls)} URLs in column '{url_column}'")
+        return urls
+
+    except Exception as e:
+        print(f"Error loading Excel: {e}")
+        return []
+
+
 def main():
     parser = argparse.ArgumentParser(description='DHA Medical Directory Scraper')
+    parser.add_argument('--excel', help='Excel file with URLs (.xlsx)')
+    parser.add_argument('--column', help='Column name containing URLs (default: auto-detect)')
     parser.add_argument('--proxy', help='Proxy URL (http://user:pass@host:port)')
     parser.add_argument('--proxy-file', help='File with proxy list (one per line)')
     args = parser.parse_args()
@@ -303,28 +345,16 @@ def main():
             proxy_list = [line.strip() for line in f if line.strip()]
         print(f"Loaded {len(proxy_list)} proxies")
 
-    urls = [
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=31701021",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=95753410",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=49452352",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=51274983",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=77227808",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=40212780",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=99987711",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=26397118",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=52784111",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=94140481",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=15873015",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=64123001",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=28181178",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=49809921",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=72034974",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=10924746",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=77038398",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=66841992",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=77923690",
-        "https://services.dha.gov.ae/sheryan/wps/portal/home/medical-directory/professional-details?dhaUniqueId=97411409",
-    ]
+    # Load URLs from Excel or use defaults
+    if args.excel:
+        urls = load_urls_from_excel(args.excel, args.column)
+        if not urls:
+            print("No URLs found in Excel file!")
+            return
+    else:
+        print("No Excel file provided. Use --excel urls.xlsx")
+        print("Example: python dha_scraper_final.py --excel urls.xlsx")
+        return
 
     print("=" * 60)
     print("DHA Medical Directory Scraper")
