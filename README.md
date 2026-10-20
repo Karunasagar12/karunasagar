@@ -1,15 +1,117 @@
-# 💫 About Me:
-🌟 I’m currently working on:<br>Improving healthcare systems through data-driven innovations and developing health-tech solutions that revolutionize patient care.<br><br>🤝 I’m looking to collaborate on:<br>Digital health projects, AI applications in healthcare, and entrepreneurial ventures.<br><br>💡 I’m looking for help with:<br>Building scalable health-tech startups and exploring the intersection of AI and healthcare management.<br><br>🌱 I’m currently learning:<br>Advanced healthcare management strategies and innovative project management at emlyon business school.<br><br>💬 Ask me about:<br>Digital health, AI-driven healthcare solutions, and starting a health-tech business.<br><br>⚡ Fun fact:<br>I’m an avid follower of the Indian Cricket Team, Chennai Super Kings (CSK), and Liverpool Football Club (LFC).
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Karunasagar12/karunasagar/main/assets/workbench.svg" alt="Karuna Sagar — builder, founder, systems thinker. AI agents, memory, evals, and healthcare." width="100%">
+</p>
 
+<p align="center">
+  <a href="#-the-workbench">The workbench</a> &nbsp;·&nbsp;
+  <a href="#-how-i-build">How I build</a> &nbsp;·&nbsp;
+  <a href="https://github.com/Karunasagar12?tab=repositories">All repositories</a>
+</p>
 
-# 💻 Tech Stack:
-![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54) ![Anaconda](https://img.shields.io/badge/Anaconda-%2344A833.svg?style=for-the-badge&logo=anaconda&logoColor=white) ![Apache Spark](https://img.shields.io/badge/Apache%20Spark-FDEE21?style=for-the-badge&logo=apachespark&logoColor=black) ![Streamlit](https://img.shields.io/badge/Streamlit-%23FE4B4B.svg?style=for-the-badge&logo=streamlit&logoColor=white) ![Apache Airflow](https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=white) ![SQLite](https://img.shields.io/badge/sqlite-%2307405e.svg?style=for-the-badge&logo=sqlite&logoColor=white) ![MongoDB](https://img.shields.io/badge/MongoDB-%234ea94b.svg?style=for-the-badge&logo=mongodb&logoColor=white) ![Adobe Acrobat Reader](https://img.shields.io/badge/Adobe%20Acrobat%20Reader-EC1C24.svg?style=for-the-badge&logo=Adobe%20Acrobat%20Reader&logoColor=white) ![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white) ![Pandas](https://img.shields.io/badge/pandas-%23150458.svg?style=for-the-badge&logo=pandas&logoColor=white) ![Matplotlib](https://img.shields.io/badge/Matplotlib-%23ffffff.svg?style=for-the-badge&logo=Matplotlib&logoColor=black) ![Scipy](https://img.shields.io/badge/SciPy-%230C55A5.svg?style=for-the-badge&logo=scipy&logoColor=%white) ![TensorFlow](https://img.shields.io/badge/TensorFlow-%23FF6F00.svg?style=for-the-badge&logo=TensorFlow&logoColor=white) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=for-the-badge&logo=PyTorch&logoColor=white) ![scikit-learn](https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white) ![NumPy](https://img.shields.io/badge/numpy-%23013243.svg?style=for-the-badge&logo=numpy&logoColor=white) ![mlflow](https://img.shields.io/badge/mlflow-%23d9ead3.svg?style=for-the-badge&logo=numpy&logoColor=blue)
-# 📊 GitHub Stats:
-![](https://github-readme-stats.vercel.app/api?username=Karunasagar12&theme=dark&hide_border=false&include_all_commits=false&count_private=false)<br/>
-![](https://github-readme-streak-stats.herokuapp.com/?user=Karunasagar12&theme=dark&hide_border=false)<br/>
-![](https://github-readme-stats.vercel.app/api/top-langs/?username=Karunasagar12&theme=dark&hide_border=false&include_all_commits=false&count_private=false&layout=compact)
+I’m **Karuna**, a founder and builder working at the intersection of **AI systems, healthcare, and product**. I like turning messy workflows into software people can actually use—and following a strange idea far enough to find out whether it works.
+
+My current rabbit hole: **agents that remember decisions, know when to ask for help, and can be tested before they’re trusted.**
+
+### `$ cat interests.yaml`
+
+```yaml
+questions:
+  - How does one human correction make every agent better?
+  - What should an agent remember—and what should it forget?
+  - How do we measure whether an AI system actually works?
+
+exploring:
+  - Agent orchestration and persistent memory
+  - Prompt-injection testing and evaluation
+  - Clinical and document AI
+  - Local models and small hardware experiments
+
+default_move: build a small version and test the idea
+```
+
+## 🧪 The workbench
+
+<table>
+<tr>
+<td valign="top" width="50%">
+
+### <a href="https://github.com/Karunasagar12/proofloop-evals">Proofloop Evals ↗</a>
+
+**Test the agent. Inspect the failures.**
+
+Prompt-injection testing for AI apps, with adversarial suites, deterministic checks, optional LLM judging, and HTML reports.
+
+<code>Python</code> · <code>LLM evaluation</code> · <code>Security testing</code>
+
+</td>
+<td valign="top" width="50%">
+
+### <a href="https://github.com/Karunasagar12/company-brain-workbench">Company Brain Workbench ↗</a>
+
+**One human decision. Reusable memory.**
+
+A full-stack prototype where ambiguous cases reach a human, corrections become structured rules, and future matching cases resolve automatically.
+
+<code>FastAPI</code> · <code>Next.js</code> · <code>TypeScript</code>
+
+</td>
+</tr>
+<tr>
+<td valign="top" width="50%">
+
+### <a href="https://github.com/Karunasagar12/ai-employee-console">AI Employee Console ↗</a>
+
+**Make the company-brain idea tangible.**
+
+A focused onboarding demo with ambiguity escalation, persistent decisions, and a visible moment where learned knowledge gets reused.
+
+<code>Flask</code> · <code>Python</code> · <code>Human-in-the-loop</code>
+
+</td>
+<td valign="top" width="50%">
+
+### <a href="https://github.com/Karunasagar12?tab=repositories">The rest of the lab ↗</a>
+
+**Experiments, prototypes, and things I’m learning from.**
+
+Explore the repositories for more work and open-source forks. The three projects here are a starting point.
+
+<code>Build</code> · <code>Inspect</code> · <code>Iterate</code>
+
+</td>
+</tr>
+</table>
+
+## ⚙️ How I build
+
+- **Start with the workflow.** Understand the awkward handoff, repeated decision, or missing context.
+- **Make uncertainty visible.** An agent asking the right question is useful behavior.
+- **Keep memory inspectable.** A stored decision should have context and a reason.
+- **Evaluate the failure cases.** A convincing demo is the beginning of the investigation.
+- **Keep the first version small.** Learn enough to justify the next one.
+
+### Tools on the bench
+
+<p>
+  <img src="https://img.shields.io/badge/Python-0d1420?style=flat-square&amp;logo=python&amp;logoColor=67e8f9" alt="Python">
+  <img src="https://img.shields.io/badge/TypeScript-0d1420?style=flat-square&amp;logo=typescript&amp;logoColor=67e8f9" alt="TypeScript">
+  <img src="https://img.shields.io/badge/FastAPI-0d1420?style=flat-square&amp;logo=fastapi&amp;logoColor=a3e635" alt="FastAPI">
+  <img src="https://img.shields.io/badge/Next.js-0d1420?style=flat-square&amp;logo=nextdotjs&amp;logoColor=white" alt="Next.js">
+  <img src="https://img.shields.io/badge/MongoDB-0d1420?style=flat-square&amp;logo=mongodb&amp;logoColor=a3e635" alt="MongoDB">
+  <img src="https://img.shields.io/badge/PyTorch-0d1420?style=flat-square&amp;logo=pytorch&amp;logoColor=fb923c" alt="PyTorch">
+</p>
+
+<details>
+<summary><b>Beyond the terminal</b></summary>
+
+<br>
+
+Indian cricket. Chennai Super Kings. Liverpool FC.
+
+Always interested in comparing notes on agent memory, practical healthcare AI, and early product experiments. Open an issue on a relevant public project if you have something concrete to discuss—please keep credentials and patient data out of it.
+
+</details>
 
 ---
-[![](https://visitcount.itsvg.in/api?id=Karunasagar12&icon=0&color=0)](https://visitcount.itsvg.in)
 
-<!-- Proudly created with GPRM ( https://gprm.itsvg.in ) -->
+<p align="center"><sub>Curiosity is the input. Working software is the output.</sub></p>
